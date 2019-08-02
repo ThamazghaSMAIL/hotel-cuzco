@@ -1,8 +1,8 @@
 {
-  "name": "simple-cqrs",
+  "name": "starter",
   "version": "1.0.0",
   "main": "src/index.ts",
-  "repository": "https://gitlab.com/mickaelw/simple-cqrs.git",
+  "repository": "https://gitlab.com/mickaelw/starter.git",
   "author": "Mickael Wegerich <mickael.wegerich@me.com>",
   "license": "MIT",
   "scripts": {
@@ -17,10 +17,12 @@
   },
   "devDependencies": {
     "@types/chai": "4.1.7",
+    "@types/lolex": "3.1.1",
     "@types/mocha": "5.2.7",
     "@types/node": "12.6.9",
     "@types/sinon": "7.0.13",
     "chai": "4.2.0",
+    "lolex": "4.2.0",
     "mocha": "6.2.0",
     "nodemon": "1.19.1",
     "sinon": "7.3.2",

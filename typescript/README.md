@@ -1,1 +1,1 @@
-## Simple CQRS TypeScript
+## Starter TypeScript

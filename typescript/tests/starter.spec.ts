@@ -1,5 +1,4 @@
-describe('Test', () => {
+describe('Starter', () => {
     it('do something', () => {
-
     })
 })
