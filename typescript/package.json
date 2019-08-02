@@ -1,0 +1,31 @@
+{
+  "name": "simple-cqrs",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "repository": "https://gitlab.com/mickaelw/simple-cqrs.git",
+  "author": "Mickael Wegerich <mickael.wegerich@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf build && tsc",
+    "build:watch": "tsc -w",
+    "start:back": "node build/index.js",
+    "start:back:watch": "nodemon build/index.js",
+    "test": "mocha --require ts-node/register --recursive './tests/**/*.spec.ts'"
+  },
+  "dependencies": {
+    "reflect-metadata": "0.1.13"
+  },
+  "devDependencies": {
+    "@types/chai": "4.1.7",
+    "@types/mocha": "5.2.7",
+    "@types/node": "12.6.9",
+    "@types/sinon": "7.0.13",
+    "chai": "4.2.0",
+    "mocha": "6.2.0",
+    "nodemon": "1.19.1",
+    "sinon": "7.3.2",
+    "sinon-chai": "3.3.0",
+    "ts-node": "8.3.0",
+    "typescript": "3.5.3"
+  }
+}
