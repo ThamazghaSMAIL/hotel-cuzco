@@ -1,7 +1,11 @@
-package starter.main.domain;
+package src.main.domain;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import src.main.domain.bed.Bed;
+import src.main.domain.bed.KingSizeBed;
+import src.main.domain.bed.QueenSizeBed;
+import src.main.domain.bed.SingleBed;
 
 import java.util.ArrayList;
 import java.util.List;
