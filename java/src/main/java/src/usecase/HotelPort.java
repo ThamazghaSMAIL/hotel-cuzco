@@ -6,4 +6,6 @@ public interface HotelPort {
 
 	Hotel getHotelByName(String hotelName);
 
+	void save(Hotel hotel);
+
 }

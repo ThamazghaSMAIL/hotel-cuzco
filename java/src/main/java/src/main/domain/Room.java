@@ -9,11 +9,11 @@ public class Room {
 	public int floorNumber;
 	public int roomNumber;
 	public int numberGuests;
-  	public List<Bed> beds;
+	public List<Bed> beds;
 	public boolean AC;
 	public boolean wifi;
 	private boolean privateBathroom;
-  	private boolean wheelchairAccessible;
+	private boolean wheelchairAccessible;
 
 	public Room(int floorNumber, int roomNumber, int numberGuests,
 							List<Bed> beds, boolean AC, boolean wifi, boolean privateBathroom, boolean wheelchairAccessible) {
@@ -91,4 +91,5 @@ public class Room {
 	public void setWheelchairAccessible(boolean wheelchairAccessible) {
 		this.wheelchairAccessible = wheelchairAccessible;
 	}
+
 }
