@@ -12,11 +12,15 @@ public class MakeAReservation {
 		this.reservationPort = reservationPort;
 	}
 
-	public Reservation execute(LocalDate checkinDate, LocalDate checkoutDate, int roomNumber) {
-		
-		Reservation reservation = reservationPort.save(roomNumber, checkinDate, checkoutDate);
+	public Reservation execute(LocalDate checkinDate, LocalDate checkoutDate, int roomNumber) throws Exception {
 
-		return reservation;
+		Reservation reservation = new Reservation(roomNumber, checkinDate, checkoutDate);
+
+		if(reservationPort.getReservationsByRoomNumberAndDate(roomNumber, checkinDate, checkoutDate).isEmpty()) {
+			throw new Exception("room is not available");
+		} else {
+			return reservationPort.save(reservation);
+		}
 	}
 
 }
