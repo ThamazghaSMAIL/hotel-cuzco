@@ -1,8 +1,10 @@
 package src.usecase;
 
-import src.main.domain.Hotel;
-import src.main.domain.Room;
+import src.domain.Hotel;
+import src.domain.MinimumStayException;
+import src.domain.Room;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class GetHotelRooms {
@@ -13,9 +15,15 @@ public class GetHotelRooms {
 		this.hotelPort = hotelPort;
 	}
 
-	public List<Room> getHotelRooms(String hotelName){
-		Hotel hotel = hotelPort.getHotelByName(hotelName);
-		return hotel.getRooms();
+	public List<Room> getHotelRooms(String hotelName, LocalDate checkIn, LocalDate checkOut) throws MinimumStayException {
+
+		if( checkIn.isEqual(checkOut)) {
+			throw new MinimumStayException();
+		}
+
+		List<Room> rooms = hotelPort.getRoomsByCheckInCheckout(hotelName, checkIn, checkOut);
+
+		return rooms;
 	}
 
 }

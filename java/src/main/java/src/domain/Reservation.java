@@ -1,4 +1,4 @@
-package src.main.domain;
+package src.domain;
 
 public class Reservation {
 

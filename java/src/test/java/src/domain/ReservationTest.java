@@ -1,4 +1,4 @@
-package src.main.domain;
+package src.domain;
 
 import org.junit.jupiter.api.Test;
 

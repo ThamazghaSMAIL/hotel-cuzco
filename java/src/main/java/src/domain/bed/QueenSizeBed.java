@@ -1,4 +1,4 @@
-package src.main.domain.bed;
+package src.domain.bed;
 
 public class QueenSizeBed extends Bed {
 }

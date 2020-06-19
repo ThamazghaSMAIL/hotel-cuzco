@@ -1,6 +1,6 @@
-package src.main.domain;
+package src.domain;
 
-import src.main.domain.bed.Bed;
+import src.domain.bed.Bed;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ public class Room {
 	public boolean wifi;
 	private boolean privateBathroom;
 	private boolean wheelchairAccessible;
+
 
 	public Room(int floorNumber, int roomNumber, int numberGuests,
 							List<Bed> beds, boolean AC, boolean wifi, boolean privateBathroom, boolean wheelchairAccessible) {

@@ -1,4 +1,4 @@
-package src.main.domain.bed;
+package src.domain.bed;
 
 public abstract class Bed {
 }
