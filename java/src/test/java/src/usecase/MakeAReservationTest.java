@@ -2,7 +2,7 @@ package src.usecase;
 
 import org.junit.jupiter.api.Test;
 import src.domain.Reservation;
-import src.infrastructure.InMemoryRoomPort;
+import src.infrastructure.InMemoryReservationPort;
 
 import java.time.LocalDate;
 
@@ -10,9 +10,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class MakeAReservationTest {
 
-	RoomPort hotelPort = new InMemoryRoomPort();
+	ReservationPort reservationPort = new InMemoryReservationPort();
 
-	MakeAReservation makeAReservation = new MakeAReservation(hotelPort);
+	MakeAReservation makeAReservation = new MakeAReservation(reservationPort);
 
 	@Test
 	public void whenARoomIsAvailable_makeAReservation() {
@@ -23,11 +23,12 @@ class MakeAReservationTest {
 		int roomNumber = 101;
 
 		// When
-		Reservation reservationReceived = makeAReservation.makeReservation(checkin, checkout, roomNumber);
+		Reservation reservationReceived = makeAReservation.execute(checkin, checkout, roomNumber);
 
 		// Then
-		Reservation reservationWanted = new Reservation(roomNumber, checkin, checkout);
-		assertThat(reservationReceived).isEqualTo(reservationWanted);
+		assertThat(reservationReceived.getRoom()).isEqualTo(roomNumber);
+		assertThat(reservationReceived.getCheckinDate()).isEqualTo(checkin);
+		assertThat(reservationReceived.getCheckoutDate()).isEqualTo(checkout);
 
 	}
 

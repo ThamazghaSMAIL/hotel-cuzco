@@ -37,11 +37,14 @@ class GetHotelRoomsTest {
 																kingSizebed, true, true, true, true);
 		Room room2Wanted = new Room(1, 102, 4,
 																queenSizebed, true, true, true, true);
+		Room room3Wanted = new Room(1, 103, 4,
+																queenSizebed, true, true, true, true);
 
-		List<Room> roomsWanted = List.of(room1Wanted, room2Wanted);
+		List<Room> roomsWanted = List.of(room1Wanted, room2Wanted, room3Wanted);
 
-		assertThat(roomsWanted.get(0).getFloorNumber()).isEqualTo(roomsReturned.get(0).getFloorNumber());
-		assertThat(roomsWanted.get(1).getFloorNumber()).isEqualTo(roomsReturned.get(1).getFloorNumber());
+		assertThat(roomsWanted.get(0).getRoomNumber()).isEqualTo(roomsReturned.get(0).getRoomNumber());
+		assertThat(roomsWanted.get(1).getRoomNumber()).isEqualTo(roomsReturned.get(1).getRoomNumber());
+		assertThat(roomsWanted.get(2).getRoomNumber()).isEqualTo(roomsReturned.get(2).getRoomNumber());
 	}
 
 	@Test

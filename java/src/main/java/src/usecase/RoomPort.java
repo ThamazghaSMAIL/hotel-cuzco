@@ -10,6 +10,4 @@ public interface RoomPort {
 
 	List<Room> getRoomsByCheckInCheckout(LocalDate checkIn, LocalDate checkOut);
 
-	void save(Room room);
-
 }

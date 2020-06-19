@@ -8,10 +8,10 @@ import java.util.List;
 
 public class GetHotelRooms {
 
-	private RoomPort hotelPort;
+	private RoomPort roomPort;
 
-	public GetHotelRooms(RoomPort hotelPort) {
-		this.hotelPort = hotelPort;
+	public GetHotelRooms(RoomPort roomPort) {
+		this.roomPort = roomPort;
 	}
 
 	public List<Room> getHotelRooms(LocalDate checkIn, LocalDate checkOut) throws MinimumStayException {
@@ -20,7 +20,7 @@ public class GetHotelRooms {
 			throw new MinimumStayException();
 		}
 
-		List<Room> rooms = hotelPort.getRoomsByCheckInCheckout(checkIn, checkOut);
+		List<Room> rooms = roomPort.getRoomsByCheckInCheckout(checkIn, checkOut);
 
 		return rooms;
 	}

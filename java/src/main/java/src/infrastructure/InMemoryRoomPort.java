@@ -17,15 +17,20 @@ public class InMemoryRoomPort implements RoomPort {
 		List<Bed> kingSizeBed = List.of(new KingSizeBed());
 		List<Bed> queenSizeBed = List.of(new QueenSizeBed());
 
-		Room room1Wanted = new Room(1, 101, 2,
+		Room room1 = new Room(1, 101, 2,
 																kingSizeBed, true, true, true,
 																true);
 
-		Room room2Wanted = new Room(1, 102, 4,
+		Room room2 = new Room(1, 102, 4,
 																queenSizeBed, true, true, true,
 																true);
 
-		this.rooms = List.of(room1Wanted, room2Wanted);
+		Room room3 = new Room(1, 103, 4,
+																queenSizeBed, true, true, true,
+																true);
+
+
+		this.rooms = List.of(room1, room2, room3);
 	}
 
 	@Override

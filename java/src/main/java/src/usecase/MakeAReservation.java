@@ -6,16 +6,17 @@ import java.time.LocalDate;
 
 public class MakeAReservation {
 
-	private RoomPort hotelPort;
+	private ReservationPort reservationPort;
 
-	public MakeAReservation(RoomPort hotelPort) {
-		this.hotelPort = hotelPort;
+	public MakeAReservation(ReservationPort reservationPort) {
+		this.reservationPort = reservationPort;
 	}
 
-	public Reservation makeReservation(LocalDate checkinDate, LocalDate checkoutDate, int roomNumber) {
+	public Reservation execute(LocalDate checkinDate, LocalDate checkoutDate, int roomNumber) {
+		
+		Reservation reservation = reservationPort.save(roomNumber, checkinDate, checkoutDate);
 
-
-		return null;
+		return reservation;
 	}
 
 }
