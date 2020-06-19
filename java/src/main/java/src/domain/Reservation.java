@@ -7,11 +7,13 @@ public class Reservation {
 	private int room;
 	private LocalDate checkinDate;
 	private LocalDate checkoutDate;
+	private int guestNumber;
 
-	public Reservation(int room, LocalDate checkinDate, LocalDate checkoutDate) {
+	public Reservation(int room, LocalDate checkinDate, LocalDate checkoutDate, int guestNumber) {
 		this.room = room;
 		this.checkinDate = checkinDate;
 		this.checkoutDate = checkoutDate;
+		this.guestNumber = guestNumber;
 	}
 
 	public int getRoom() {

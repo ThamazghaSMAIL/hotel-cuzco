@@ -38,6 +38,11 @@ public class InMemoryRoomPort implements RoomPort {
 		return this.rooms;
 	}
 
+	@Override
+	public Room getRoomByRoomNumber(int roomNumber) {
+		return rooms.stream().filter(room -> room.roomNumber == roomNumber).findFirst().orElse(null);
+	}
+
 	public void save(Room room) {
 		this.rooms.add(room);
 	}

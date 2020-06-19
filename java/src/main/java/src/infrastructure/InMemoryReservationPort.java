@@ -6,7 +6,6 @@ import src.usecase.ReservationPort;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class InMemoryReservationPort implements ReservationPort {
@@ -19,7 +18,7 @@ public class InMemoryReservationPort implements ReservationPort {
 
 		LocalDate checkin = LocalDate.of(2015, 12, 10);
 		LocalDate checkout = LocalDate.of(2015, 12, 20);
-		Reservation reservation = new Reservation(103, checkin, checkout);
+		Reservation reservation = new Reservation(103, checkin, checkout, 1);
 
 		this.reservations.add(reservation);
 	}

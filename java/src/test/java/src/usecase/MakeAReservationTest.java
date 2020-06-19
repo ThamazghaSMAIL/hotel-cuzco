@@ -1,9 +1,9 @@
 package src.usecase;
 
 import org.junit.jupiter.api.Test;
-import src.domain.MinimumStayException;
 import src.domain.Reservation;
 import src.infrastructure.InMemoryReservationPort;
+import src.infrastructure.InMemoryRoomPort;
 
 import java.time.LocalDate;
 
@@ -14,7 +14,9 @@ class MakeAReservationTest {
 
 	ReservationPort reservationPort = new InMemoryReservationPort();
 
-	MakeAReservation makeAReservation = new MakeAReservation(reservationPort);
+	private RoomPort roomPort = new InMemoryRoomPort();
+
+	MakeAReservation makeAReservation = new MakeAReservation(reservationPort, roomPort);
 
 	@Test
 	public void whenARoomIsAvailable_makeAReservation() throws Exception {
@@ -25,7 +27,7 @@ class MakeAReservationTest {
 		int roomNumber = 101;
 
 		// When
-		Reservation reservationReceived = makeAReservation.execute(checkin, checkout, roomNumber);
+		Reservation reservationReceived = makeAReservation.execute(checkin, checkout, roomNumber, 1);
 
 		// Then
 		assertThat(reservationReceived.getRoom()).isEqualTo(roomNumber);
@@ -35,7 +37,7 @@ class MakeAReservationTest {
 	}
 
 	@Test
-	public void whenARoomIsNotAvailable_throwAnException() throws Exception {
+	public void whenARoomIsNotAvailable_throwAnException() {
 
 		// Given
 		LocalDate checkin = LocalDate.of(2015, 12, 12);
@@ -44,7 +46,20 @@ class MakeAReservationTest {
 
 		// When
 		// Then
-		assertThrows(Exception.class, () -> makeAReservation.execute(checkin, checkout, roomNumber));
+		assertThrows(Exception.class, () -> makeAReservation.execute(checkin, checkout, roomNumber, 1));
+	}
+
+	@Test
+	public void whenRoomNumberOfGuestIsLessThenReservationGuestsNumber_throwAnException() {
+
+		// Given
+		LocalDate checkin = LocalDate.of(2015, 12, 12);
+		LocalDate checkout = LocalDate.of(2015, 12, 14);
+		int roomNumber = 101;
+
+		// When
+		// Then
+		assertThrows(Exception.class, () -> makeAReservation.execute(checkin, checkout, roomNumber, 2));
 	}
 
 }

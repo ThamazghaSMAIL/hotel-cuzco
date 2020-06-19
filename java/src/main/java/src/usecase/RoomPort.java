@@ -10,4 +10,5 @@ public interface RoomPort {
 
 	List<Room> getRoomsByCheckInCheckout(LocalDate checkIn, LocalDate checkOut);
 
+	Room getRoomByRoomNumber(int roomNumber);
 }
